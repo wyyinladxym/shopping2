@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" class="platform-iphone platform-mobile platform-m bugfix " style="font-size: 11.25px;">
+
+<head>
+    <meta charset="utf-8">
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script type="text/javascript">
+    navigator.__defineGetter__("userAgent",
+        function() {
+            return "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
+        })
+    </script>
+    <title>欧德罗-经销商系统</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="chenhaoqiang">
+    <meta name="description" content="欧德罗-OTHELLO,经销商系统">
+    <meta name="keywords" content="欧德罗-OTHELLO,经销商系统">
+    <link rel="stylesheet" href="__CSS__/base.css" />
+    <link rel="stylesheet" href="__CSS__/phone_index.all.css" />
+    <link rel="stylesheet" href="__PLUG__/swiper/swiper.min.css">
+    <script src="__JS__/jquery.min.js"></script>
+    <script src="__JS__/iscroll.js"></script>
+    <script src="__PLUG__/swiper/swiper.min.js"></script>
+    <script src="__PLUG__/layer_mobile/layer.js"></script>
+    <!-- 旧系统还用了下面这些文件 -->
+    <script src="__JS__/jquery.fly.min.js"></script>
+    <!-- requestAnimationFrame.js文件是用来兼容IE8以下的游览器的 -->
+    <script src="__JS__/requestAnimationFrame.js"></script>
+    <!-- chenhaoqiang在2017-11-16 14:31:01编写 ${copyright}-->
+    <script type="text/javascript">
+    var docElement = document.documentElement;
+    docElement.style.fontSize = 10 * (docElement.clientWidth / 320) + 'px';
+    </script>
+</head>
+
+<body class="pv-menu bugfix-ui">
+    <div id="mod-container" class="mod-container clearfix">
+        <div id="mod-menu" class="mod-menu pageview" style="display: block;">
+
+            <header class="pub-header">
+              <!--   <span class="tap-action icon icon-me" data-tap="me" id="me"><a href="login.html" style="display: block;width:100%;height:100%;"></a></span> -->
+                <a class="icon-me" href="{:url('User/index')}"><img class="head-img" src="__IMG__/head-img.png"></a>
+                <div id="main-address-tap" class="header-content ui-ellipsis" data-tap="selectAddr" style="line-height:36px;" onclick="location='myaddress.html'">
+                    <span class="icon icon-location "></span> &nbsp;<span name="cart-addr">棠下南边大街13号</span>▼
+                </div>
+                <a class="icon icon-search header-right tap-action" data-tap="search"></a>
+                <p style="text-align: center;padding-top: 23px;">
+                    <font color="#e7601f" size="2">点击图片查看产品详情</font>
+                </p>
+            </header>
+
+            <div class="main main-both">
+                <!-- 分类 start  -->
+                <div id="list-category" class="list-category iscroll-container ui-graybg" data-iscroll-id="category" data-iscroll-nobar="1" style="overflow: hidden;">
+                    <ul class="list-category-ul"  id="list-category-ul" >
+                        <!--ajax加载分类数据-->
+                    </ul>
+                </div>
+                <!-- 分类 end  -->
+                <!-- 产品 start  -->
+                <div id="list-product" class="list-product iscroll-container" data-iscroll-id="product" data-onrefresh="productScroll" data-onscrollend="productScroll" data-onscrollmove="productScroll" data-ontouchend="productScrollEnd" style="overflow: hidden;">
+                    <ul id="list-product-items" class="list-product-ul mod-pub-product">
+                        <!-- ajax加载商品数据 -->
+                    </ul>
+                </div>
+                <!-- 产品 end  -->
+            </div>
+
+        </div>
+
+        <!--商品详情页 start-->
+        <div id="mod-overlay-detail" class="mod-overlay mod-overlay-detail" style="display: none;">
+            <div class="content">
+                <div id="list_detail" class="detail-container iscroll-container" data-onscrollmove="onScrollMove" data-onanimate="onScrollMove" data-iscroll-id="goods_detail" style="overflow: hidden;">
+                    <div class="detail-content">
+                        <div class="mod-productDetail">
+                            <div class="wrapper">
+                                <div class="imgwrap">
+                                    <div id="bannerContainer" class="mod-banner-wrap">
+                                        <!-- 详情图片数据 -->
+                                    </div>
+                                </div>
+                               <!--  <div id="good_carousel" class="swiper-container good_carousel">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="http://shop.othello1888.com/shopping/iwebshop/upload/2016/06/07/20160607201638613.jpg" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="http://shop.othello1888.com/shopping/iwebshop/upload/2016/06/07/20160607184030706.jpg" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="http://shop.othello1888.com/shopping/iwebshop/upload/2016/06/07/20160607183938904.jpg" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="http://shop.othello1888.com/shopping/iwebshop/upload/2016/06/07/20160607201708361.jpg" alt="">
+                                        </div>
+                                    </div>
+                                 
+                                    <div class="swiper-pagination"></div>
+                                </div> -->
+                                <div class="mod-pub-product operate">
+                                    <div class="product-title-no-short">
+                                        <p class="product-name">暂无数据</p>
+                                    </div>
+                                    <div class="product-shopping">
+                                        <div class="mod-pub-cart shopping">
+                                            <span id="product-del" class="product-del shopping-action">
+                                                <div class="add-del-bg"></div>
+                                            </span>
+                                            <span id="detail_goods_num" class="product-count" >0</span>
+                                            <span id="product-add" class="product-add shopping-action">
+                                                <div class="add-del-bg"></div>
+                                            </span>
+                                        </div>
+                                        <span class="product-price">￥0.00</span>
+                                    </div>
+                                </div>
+                                <div class="separate"> </div>
+                                <div class="property-item ui-ellipsis">
+                                    <span class="leading-word">产品编码</span>
+                                    <span class="content-word"></span>
+                                </div>
+                                <div class="separate-no-border"> </div>
+                                <div class="detail_desc">
+                                   <!-- 商品详情内容 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--商品详情页 end-->
+        
+        <!--cart页-->
+        <div id="mod-overlay-cart" class="mod-overlay mod-overlay-cart" style="display: none;">
+            <div class="cart-detail" style="transform: translate3d(0px, 0px, 0px); bottom: 50px;">
+                <div class="list_cart_header">
+                    <div class="list_cart_headerText"><span class="list_cart_titleText">已选商品</span></div>
+                    <span class="del_cart" onclick="del_cart()"><i class="trash_bin"></i>清空</span>
+                </div>
+                <div id="list_cart" class="list-wrapper iscroll-container" data-iscroll-id="list_cart" style="overflow: hidden;">
+                    <ul id="list_cart_detail" class="list-shopping-ul">
+                            <!-- ajax加载购物车数据 -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 修改数量box start -->
+        <div id="edit_cart_num_box">
+            <p class="edit_cart_num_title">修改购买数量</p>
+            <div class="edit_cart_num clearfix">
+                <li class="edit_cart_jian">-</li>
+                <li class="edit_cart_val"> <input type="number" class="edit_num" /></li>
+                <li class="edit_cart_jia">+</li>
+            </div>
+        </div>
+        <!-- 修改数量box end -->
+      
+        <!--底部购物车 start-->
+        <div class="pub-cart">
+            <span id="gocart" class="shopping-icon icon icon-cart-inner expand" >
+                <span class="shopping-count" id="cart_goods_num" style="visibility: visible;display: block;">0</span>
+            </span>
+            <div class="info expand">
+                <p class="cart-total shopping-total">共￥<span id="cart_goods_total">0.00</span></p>
+            </div>
+            <div class="submit shopping-submit tap-action shopping-enable"  disabled="false">
+                <span class="submit-text shopping-submit-text">
+                    选好了
+                </span>
+            </div>
+        </div>
+        <!--底部购物车 end-->
+
+        <!--页面mask背景 start-->
+        <div id="mod-overlay-mask" class="mod-overlay-mask" style="display: none;"></div>
+        <!--页面mask背景 end-->
+
+    </div>
+    
+    
+</body>
+<script>
+
+function tp_url(controller, method) {
+    return '{:url("'+controller+'/'+method+'")}';
+}
+var UPLOADS = '__UPLOADS__';
+</script>
+<script src="__JS__/main.js"></script>
+</html>

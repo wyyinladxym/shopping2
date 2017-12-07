@@ -1,0 +1,102 @@
+{__NOLAYOUT__}
+<form data-method="post" data-action="{:url('Salesman/saveData');}" data-submit="ajax" data-validate="true" class="form-horizontal" id="editForm">
+    <input type="hidden" value="{$data['id'] ?? ''}" name="id">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">{$data['id']?lang('Edit'):lang('Add')}{:lang('Salesman')}</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-content">
+                        <div class="form-group">
+                            <div class="m-b-sm text-center">
+                                <label for="up_headpic">
+                                    <input type="file" name="up_headpic" class="form-control hidden" id="up_headpic">
+                                    <img alt="image" class="img-circle" id="headpic_img" title="{:lang('Click to change the picture')}" src="{$data['headpic'] ? '__UPLOADS__'.$data['headpic_100'] : config('salems_default_pic')}" width="100">
+                                </label>
+                                <input type="hidden" name="headpic" value="{$data.headpic ?? ''}" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">{:lang('SalesmanName')}</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="name" maxlength="10" placeholder="{:lang('Up_characters',['langth' =>10])}" required value="{$data['name'] ?? ''}" >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">{:lang('Sex')}</label>
+                            <div class="col-sm-7">
+                                <select name="sex" class="form-control" required>
+                                    <option value="0" {$data['sex'] == 0 ? 'selected' : ''}>{:lang('Secrecy')}</option>
+                                    <option value="1" {$data['sex'] == 1 ? 'selected' : ''}>{:lang('Male')}</option>
+                                    <option value="2" {$data['sex'] == 2 ? 'selected' : ''}>{:lang('Female')}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">{:lang('Mobile Number')}</label>
+                            <div class="col-sm-7"> 
+                                <input type="tel" class="form-control mobile" name="mobile" maxlength="11" placeholder="{:lang('Up_characters',['langth' =>11])}" required value="{$data.mobile ?? ''}"  >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">{:lang('Department')}{:lang('Name')}</label>
+                            <div class="col-sm-7">
+                                <select name="department_id" class="form-control" required>
+                                        <option value="">{:lang('Please choose Department')}</option>
+                                    {volist name="depart_data" id="vo"}
+                                        <option value="{$vo['id']}" {$data['department_id'] == $vo['id'] ? 'selected' : ''}>{$vo['name']}</option>
+                                    {/volist}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{:lang('Cancel')}</button>
+                    <button type="submit" class="btn btn-primary">{:lang('Save')}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{js href="__STATIC__/common/plugins/ajaxfileupload.js" /}
+
+<script>
+$(function(){
+
+    //业务员头像
+    $("input[name='up_headpic']").bind('change',ajaxFileUpload);
+    function ajaxFileUpload() {
+        var id = $(this).attr('id');
+        $.ajaxFileUpload
+        (
+            {
+                url: "{:URL('Salesman/ajaxfileupload')}", //用于文件上传的服务器端请求地址
+                data: {},
+                secureuri: false, //一般设置为false
+                fileElementId: id, //文件上传空间的id属性  <input type="file" id="file" name="file" />
+                dataType: 'json', //返回值类型 一般设置为json
+                success: function (res, status)  //服务器成功响应处理函数
+                {
+                    if(res.error) {
+                        $("input[name='up_headpic']").bind('change',ajaxFileUpload); //重新绑定
+                        alertMsg(res.msg);
+                        return false;
+                    }
+                    $('#headpic_img').attr('src','__UPLOADS__' + res.data.original_img);
+                    $('input[name="headpic"]').val(res.data.original_img);
+                },
+                error: function (data, status, e)//服务器响应失败处理函数
+                {
+                     alertMsg('服务器响应失败,请重新添加');
+                }
+            }
+        )
+        $("input[name='up_headpic']").bind('change',ajaxFileUpload);; //重新绑定
+    }
+
+})
+</script>

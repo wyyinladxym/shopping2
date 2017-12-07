@@ -1,0 +1,273 @@
+.order_tab {
+  height: 44px;
+  line-height: 44px;
+  background: #fff;
+  border-bottom: 1px solid #999;
+  overflow: hidden;
+}
+.order_tab .order_tab_li {
+  float: left;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  display: table;
+  position: relative;
+}
+.order_tab .order_tab_li a {
+  display: table-cell;
+  width: 100%;
+  margin-left: -1px;
+  color: #000;
+  text-decoration: none;
+}
+.order_tab .cur span {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  color: #f58612;
+  font-weight: bold;
+}
+.order_tab .cur span:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 8px;
+  background: #f58612;
+  bottom: -0.5px;
+  left: 50%;
+  margin-left: -50%;
+  transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+}
+
+.empty_orders_list {
+  background: #f2f2f0;
+  min-height: 460px;
+}
+.empty_orders_list .cart_ico {
+  text-align: center;
+  padding: 20px 0 10px;
+}
+.empty_orders_list .cart_ico i {
+  font-size: 120px;
+  color: #aaa;
+}
+.more-pepper {
+  width: 60%;
+  margin: 0 auto;
+  background: #fff;
+  height: 40px;
+  text-align: center;
+  color: #686868;
+  margin-top: 20px;
+}
+.more-pepper a {
+  padding-right: 25px;
+  width: 190%;
+  height: 200%;
+  font-size: 28px;
+  line-height: 80px;
+  border: 1px solid #848689;
+  -moz-transform: scale(0.5, 0.5);
+  -ms-transform: scale(0.5, 0.5);
+  -webkit-transform: scale(0.5, 0.5);
+  transform: scale(0.5, 0.5);
+  -moz-transform-origin: 0;
+  -ms-transform-origin: 0;
+  -webkit-transform-origin: 0;
+  transform-origin: top left;
+  display: block;
+  color: #686868;
+}
+
+.full_orders_list {
+}
+.full_orders_list .order .order_list .order_li {
+  margin-bottom: 10px;
+  background: #fff;
+}
+.full_orders_list .order .order_list .order_li .order_li_head {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+.full_orders_list .order .order_list .order_li .order_li_head .seller {
+  display: block;
+  padding: 0 15px 0 10px;
+  height: 35px;
+  line-height: 35px;
+}
+.full_orders_list .order .order_list .order_li .order_li_head .seller a {
+  display: block;
+  text-decoration: none;
+}
+.full_orders_list .order .order_list .order_li .order_li_head .seller .order_li_ico {
+  font-size: 13px;
+  color: #111;
+  vertical-align: top;
+  display: inline-block;
+  font-weight: normal;
+}
+.full_orders_list .order .order_list .order_li .order_li_head .seller .order_li_ico .diy-logo {
+  vertical-align: middle;
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-position: 50% 35%;
+  background-size: 70%;
+}
+.full_orders_list .order .order_list .order_li .order_li_head .seller .order_li_time {
+  font-size: 13px;
+  color: #111;
+  vertical-align: top;
+  display: inline-block;
+  font-weight: normal;
+}
+.full_orders_list .order .order_list .order_li .order_li_head .seller .order_li_status {
+  font-size: 13px;
+  color: #999;
+  float: right;
+}
+.full_orders_list .order .order_list .order_li .order_li_head .seller .order_li_status i {
+  margin-left: 0.1rem;
+  color: #999;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list {
+  padding: 6px 8px;
+  margin-bottom: 5px;
+  background: #f9f9f9;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_img {
+  float: left;
+  width: 70px;
+  height: 70px;
+  margin-right: 5px;
+  box-pack: center;
+  box-align: center;
+  display: box;
+  background: url(../images/trademark.jpg) no-repeat center center;
+  background-size: 100% 100%;
+  border: 1px solid #eeeeee;
+  box-shadow: #888888 3px 3px 16px;
+  overflow: hidden;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_img>img{
+  width: 100%;
+  height: 100%;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_info {
+  float: left;
+  box-flex: 1;
+  width: 52%;
+  margin-top: 2px;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_info .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+  font-weight: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #353518;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_info .model {
+  margin-top: 2px;
+  font-size: 13px;
+  color: #333;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_info .guige {
+  font-size: 12px;
+  color: #999;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_pay {
+  float: right;
+  width: 22%;
+  text-align: right;
+  display: box;
+  -webkit-box-orient: vertical;
+  margin-top: 2px;
+  color: #353518;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_pay .item_pay_data {
+  box-flex: 1;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_pay .item_pay_data .new_price {
+  font-size: 14px;
+  color: #fd6902;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_pay .item_pay_data .old_price {
+  font-size: 13px;
+  color: #999;
+}
+.full_orders_list .order .order_list .order_li .order_li_item .item_list .item_pay .item_pay_data .nums {
+  font-size: 13px;
+  color: #999;
+  margin-top: 0.1rem;
+}
+.full_orders_list .order .order_list .order_li .order_li_pay .total_price {
+  height: 30px;
+  line-height: 30px;
+  padding-right: 6px;
+  text-align: right;
+  box-pack: center;
+  box-align: center;
+  display: box;
+  background: #fff;
+  border-bottom: 1px solid #e7e7e7;
+}
+.full_orders_list .order .order_list .order_li .order_li_pay .total_price .count {
+  width: 100%;
+  word-break: break-all;
+}
+.full_orders_list .order .order_list .order_li .order_li_pay .total_price .count > span {
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 13px;
+}
+.full_orders_list .order .order_list .order_li .order_li_pay .total_price .count > span b {
+  font-size: 14px;
+}
+.full_orders_list .order .order_list .order_li .order_li_more .order_tab_btn {
+  padding: 1px 8px 1px 0;
+  border-bottom: 1px solid #e7e7e7;
+  background: #fff;
+}
+.full_orders_list .order .order_list .order_li .order_li_more .order_tab_btn > ul {
+  position: relative;
+  float: right;
+}
+.full_orders_list .order .order_list .order_li .order_li_more .order_tab_btn > ul li {
+  float: right;
+  font-size: 14px;
+  padding: 0 15px;
+  margin: 3px 0 3px 20px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #999;
+  border-radius: 5px;
+}
+.full_orders_list .order .order_list .order_li .order_li_more .order_tab_btn > ul li a {
+  display: block;
+  text-decoration: none;
+}
+.full_orders_list .order .order_list .order_li .order_li_more .order_tab_btn > ul .submit_order {
+  background: #f58612;
+  color: #fff;
+  border: none;
+}

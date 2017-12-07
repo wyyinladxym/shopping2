@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="platform-iphone platform-mobile platform-m bugfix " style="font-size: 11.25px;">
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+    navigator.__defineGetter__("userAgent",
+        function() {
+            return "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
+        })
+    </script>
+    <title>欧德罗-经销商系统</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="chenhaoqiang">
+    <meta name="description" content="欧德罗-OTHELLO,经销商系统">
+    <meta name="keywords" content="欧德罗-OTHELLO,经销商系统">
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="./css/myorder.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/iscroll.js"></script>
+    <style>
+    .mod-container,
+    .mod-container .pageview,
+    .mod-container .main {
+        position: static;
+    }
+
+    .mod-container .main .content {
+        padding-bottom: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="mod-container" class="mod-container clearfix">
+        <div id="mod-confirm" class="mod-confirm pageview" style="display: block;">
+            <header class="pub-header">
+                <a href="javascript:history.back(-1)"><span class="tap-action icon icon-back"></span></a>
+                <div class="header-content ">
+                    我的订单
+                </div>
+                <span class="header-right header-right-text"></span>
+            </header>
+            <!-- <div class="main main-top iscroll-container" data-iscroll-id="content" style="overflow-y: hidden;"> -->
+            <div class="main main-top" data-iscroll-id="content" style="">
+                <!--这里禁止了拖动页面-->
+                <div class="content" style=" transition-property: transform; transform-origin: 0px 0px 0px; transform: translate(0px, 0px) scale(1) translateZ(0px);">
+                    <div class="order_tab">
+                        <ul class="clearfix">
+                            <li class="order_tab_li cur">
+                                <a href="/wx_shopping/Home/Order/my_orders_list.html"><span>全部</span></a>
+                            </li>
+                            <li class="order_tab_li ">
+                                <a href="/wx_shopping/Home/Order/my_orders_list/order_status/1.html"><span>待付款</span></a>
+                            </li>
+                            <li class="order_tab_li ">
+                                <a href="/wx_shopping/Home/Order/my_orders_list/order_status/2.html"><span>待发货</span></a>
+                            </li>
+                            <li class="order_tab_li ">
+                                <a href="/wx_shopping/Home/Order/my_orders_list/order_status/3.html"><span>待收货</span></a>
+                            </li>
+                            <li class="order_tab_li ">
+                                <a href="/wx_shopping/Home/Order/my_orders_list/order_status/5.html"><span>已过期</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 没有订单 -->
+                    <div class="empty_orders_list empty_div" style="display: none;">
+                        <div class="cart_ico">
+                            <i class="iconfont icon-dingdan"></i>
+                        </div>
+                        <p style="text-align:center;font-size: 22px;">您还没有相关订单</p>
+                        <p style="text-align:center;font-size: 14px;color: #999;padding-bottom: 20px;">可以去看看有哪些想买的</p>
+                        <div class="more-pepper"><a href="index.html">更多好锅，去商品中心看看<i class="iconfont icon-graphfall"></i></a></div>
+                    </div>
+                    <!-- 没有订单end -->
+                    <!-- 订单展示 -->
+                    <div class="full_orders_list">
+                        <div class="order">
+                            <ul class="order_list full_div" style="display: block;">
+                                <li class="order_li">
+                                    <div class="order_li_head">
+                                        <div class="seller clearfix">
+                                            <a href="javascript:void">
+                                                <div class="order_li_ico"><i class="iconfont diy-logo"></i></div>
+                                                <div class="order_li_time">2017-07-06 19:29:47</div>
+                                                <div class="order_li_status">
+                                                    <span class="order_type" style="color:#f58612;">协议付款 [未确认]</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_item" onclick="location.href='/wx_shopping/Home/Order/order_confirm?order_id=552'">
+                                        <div class="item_list clearfix">
+                                            <div class="item_img"><img src="http://weishop.com/wx_shopping/Public/Upload/597b48a9731d0.png"></div>
+                                            <div class="item_info">
+                                                <h3 class="title">明泰系列鸡翅木筷子十双装明泰系列鸡翅木筷子十双装明泰系列鸡翅木筷子十双装</h3>
+                                                <p class="model">TL3610、M1030101</p>
+                                                <p class="guige">460ML(粉色)</p>
+                                            </div>
+                                            <div class="item_pay">
+                                                <div class="item_pay_data">
+                                                    <p class="new_price">￥32.00</p>
+                                                    <p class="old_price">
+                                                        <s>￥32.00</s>
+                                                    </p>
+                                                    <p class="nums">x2</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_item" onclick="location.href='/wx_shopping/Home/Order/order_confirm?order_id=552'">
+                                        <div class="item_list clearfix">
+                                            <div class="item_img"><img src="http://weishop.com/wx_shopping/Public/Upload/2016/06/20/20160620133207808.jpg"></div>
+                                            <div class="item_info">
+                                                <h3 class="title">泰丽系列不锈钢保温水杯</h3>
+                                                <p class="model">TL3610、M1030101</p>
+                                                <p class="guige">460ML(粉色)</p>
+                                            </div>
+                                            <div class="item_pay">
+                                                <div class="item_pay_data">
+                                                    <p class="new_price">￥18888.00</p>
+                                                    <p class="old_price">
+                                                        <s>￥188.00</s>
+                                                    </p>
+                                                    <p class="nums">x1</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_pay">
+                                        <div class="total_price">
+                                            <div class="count">
+                                                <span>共<b>3</b>件商品</span>
+                                                <span>实付:<b>￥212.00</b></span>
+                                                <span>(含运费<b>￥0.00</b>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_more">
+                                        <div class="order_tab_btn clearfix">
+                                            <ul class="clearfix">
+                                                <li>
+                                                    <a href="/wx_shopping/Home/Goods/goods_all.html">逛逛其他</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="order_li">
+                                    <div class="order_li_head">
+                                        <div class="seller clearfix">
+                                            <a href="javascript:void">
+                                                <div class="order_li_ico"><i class="iconfont diy-logo"></i></div>
+                                                <div class="order_li_time">2017-07-06 19:29:47</div>
+                                                <div class="order_li_status">
+                                                    <span class="order_type" style="color:#f58612;">协议付款 [未确认]</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_item" onclick="location.href='/wx_shopping/Home/Order/order_confirm?order_id=524'">
+                                        <div class="item_list clearfix">
+                                            <div class="item_img"><img src="http://weishop.com/wx_shopping/Public/Upload/2016/09/22/20160922164310133.jpg"></div>
+                                            <div class="item_info">
+                                                <h3 class="title">硅胶刷</h3>
+                                                <p class="model">TL3610、M1030101</p>
+                                                <p class="guige">460ML(粉色)</p>
+                                            </div>
+                                            <div class="item_pay">
+                                                <div class="item_pay_data">
+                                                    <p class="new_price">￥1444.40</p>
+                                                    <p class="old_price">
+                                                        <s>￥18.00</s>
+                                                    </p>
+                                                    <p class="nums">x1</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_pay">
+                                        <div class="total_price">
+                                            <div class="count">
+                                                <span>共<b>1</b>件商品</span>
+                                                <span>实付:<b>￥14.40</b></span>
+                                                <span>(含运费<b>￥0.00</b>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_more">
+                                        <div class="order_tab_btn clearfix">
+                                            <ul class="clearfix">
+                                                <li>
+                                                    <a href="/wx_shopping/Home/Goods/goods_all.html">逛逛其他</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="order_li">
+                                    <div class="order_li_head">
+                                        <div class="seller clearfix">
+                                            <a href="javascript:void">
+                                                <div class="order_li_ico"><i class="iconfont diy-logo"></i></div>
+                                                <div class="order_li_time">2017-07-06 19:29:47</div>
+                                                <div class="order_li_status">
+                                                    <span class="order_type" style="color:#f58612;">微信支付 [未支付]</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_item" onclick="location.href='/wx_shopping/Home/Order/order_confirm?order_id=521'">
+                                        <div class="item_list clearfix">
+                                            <div class="item_img"><img src="http://weishop.com/wx_shopping/Public/Upload/597705f9313ac.jpg"></div>
+                                            <div class="item_info">
+                                                <h3 class="title">玻璃碗5件套</h3>
+                                                <p class="model">TL3610、M1030101</p>
+                                                <p class="guige">460ML(粉色)</p>
+                                            </div>
+                                            <div class="item_pay">
+                                                <div class="item_pay_data">
+                                                    <p class="new_price">￥100.00</p>
+                                                    <p class="old_price">
+                                                        <s>￥100.00</s>
+                                                    </p>
+                                                    <p class="nums">x1</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_pay">
+                                        <div class="total_price">
+                                            <div class="count">
+                                                <span>共<b>1</b>件商品</span>
+                                                <span>实付:<b>￥100.00</b></span>
+                                                <span>(含运费<b>￥0.00</b>)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order_li_more">
+                                        <div class="order_tab_btn clearfix">
+                                            <ul class="clearfix">
+                                                <li>
+                                                    <a href="/wx_shopping/Home/Goods/goods_all.html">逛逛其他</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 订单展示end -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    $(function() {})
+    </script>
+</body>
+
+</html>

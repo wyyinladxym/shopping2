@@ -1,0 +1,278 @@
+/*!File[phone/index/view_addredit.css]*/
+
+.mod-addredit .content ul {
+    background-color: #fff;
+    border-bottom: 1px solid #cfcfcf;
+    border-top: 1px solid #cfcfcf;
+    margin: 10px 0
+}
+
+.mod-addredit input.bigbtn-one {
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid #cfcfcf;
+    border-top: 1px solid #cfcfcf;
+    height: 42px;
+    line-height: 42px;
+    background-color: #fff;
+    color: #e54c09
+}
+
+.mod-addredit li {
+    height: 49px;
+    border-bottom: solid 1px #ddd;
+    line-height: 50px;
+    margin: 0 10px;
+    position: relative
+}
+
+.mod-addredit .content ul li select {
+    -webkit-appearance: none;
+    border: none;
+    width: 70%;
+    padding: 10px 0
+}
+
+.mod-addredit li:last-child {
+    border-bottom: none;
+    height: 85px
+}
+
+.mod-addredit .list_name {
+    display: inline-block;
+    width: 80px
+}
+
+
+.mod-addredit li .addr-city {
+    margin-left: -5px
+}
+
+
+/*new deleteAddress begin*/
+.mod-addrdelete .content ul{
+    background-color: #fff;
+    border: none;
+    margin: 0;
+}
+
+.mod-addrdelete .inputs {
+    width: 90%;
+    position: relative;
+}
+.mod-addrdelete .addr-input-sex{
+    width: 10%;
+    top:-3px;
+}
+/*new deleteAddress end*/
+/*new addresslist begin*/
+.mod-addresslist {
+    border-bottom: 1px solid #f9f9f7;
+    height: 80px;
+    margin: 0 10px;
+    position: relative;
+}
+.mod-addresslist .mod-revisions{
+    left: 80%;
+    position: absolute;
+    top: 17px;
+}
+.mod-addresslist .list-addr{
+    color:#999;
+    height: 32px;
+    overflow: hidden;
+    text-overflow: -o-ellipsis-lastline;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.mod-addresslist .list-name span{
+    padding-left:10px;
+}
+.mod-addresslist .list-info {
+    left: 0;
+    line-height: 16px;
+    position: absolute;
+    right: 0;
+    top: 20px;
+    width: 75%;
+    overflow:hidden;
+    border-right:1px solid #ddd;
+}
+.mod-addresslist .button {
+    background-color: #e7601f;
+    border: medium none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+    padding:0 15px;
+    height: 40px;
+    line-height: 40px;
+}
+.mod-addrlist li{
+    height: 90px;
+    border-bottom: solid 1px #ddd;
+    line-height: 50px;
+    margin: 0 10px;
+    position: relative
+}
+.mod-addrlist li:last-child {
+    border-bottom: none;
+    height: 85px
+}
+.mod-addrlist .pub-cart {
+    background-color: #fff;
+    border-top: 1px solid #cdcec8;
+    bottom: 0;
+    height: 70px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 2147483584;
+}
+.mod-addrlist .bigbtn-one{
+    width: 60%;
+    margin: 20px 20% 0;
+}
+/*new addresslist end*/
+
+.mod-addredit .input {
+    border: none;
+    background-color: transparent;
+    border-radius: 0;
+    width: 70%;
+    padding: 10px 0;
+    position: absolute;
+    top: 6px;
+    left: 80px;
+    -webkit-tap-highlight-color: rgba(255,255,255,0)
+}
+.mod-addredit .input.addr-input-address {
+    border-bottom: 1px solid #ccc
+}
+
+.mod-addredit .input.addr-input-name {
+    width: 50%
+}
+
+.mod-addredit .addr-weixin-address {
+    display: inline-block;
+    width: 56px;
+    height: 21px;
+    background-size: 56px;
+    margin-top: 13px
+}
+
+.platform-ios70 .mod-addredit .content {
+    padding-bottom: 400px
+}
+
+.mod-addredit .return-whole-address {
+    float: right;
+    margin-right: 20px;
+    margin-top: -5px;
+    width: 50px;
+    height: 30px;
+    background: #FC0;
+    border: solid 0 #538312;
+    border-radius: 2px
+}
+
+.mod-addredit .clear-address-show {
+    display: inline
+}
+
+.mod-addredit .addr-input-address-suggestion {
+    border-bottom: solid 0 gray;
+    width: 78%;
+    margin-top: -2px;
+    left: 10px
+}
+
+.mod-addredit .suggestion {
+    display: none;
+    position: absolute;
+    left: 0;
+    height: 400px;
+    width: 100%;
+    top: 500px;
+    padding-left: 10px;
+    padding-top: 20px;
+    padding: 15px 0 15px 10px
+}
+
+.mod-addredit .search-suggestion-dropdown {
+    position: absolute;
+    display: none;
+    width: 100%;
+    padding: 0!important;
+    background-color: #fafafa;
+    border-top-color: #D9D9D9;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,.2);
+    overflow-x: hidden;
+    overflow-y: auto;
+    left: 0;
+    top: 50px
+}
+
+.mod-addredit .search-suggestion-dropdown ul {
+    margin: 0!important;
+    padding: 0!important;
+    list-style: none
+}
+
+.mod-addredit .search-suggestion-dropdown li {
+    display: block;
+    padding: 0 0 0 8px!important;
+    cursor: pointer;
+    margin: 0!important;
+    list-style-type: none;
+    text-align: left;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #fff;
+    background-color: #fafafa;
+    font-size: 16px
+}
+
+
+
+.mod-addredit .search-suggestion-dropdown .title {
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    line-height: 30px
+}
+
+.mod-addredit .search-suggestion-dropdown .addr {
+    color: #999;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding-top: 0;
+    font-size: 14px;
+    line-height: 20px
+}
+
+.mod-addredit .hint {
+    color: #FF8A00;
+    font-size: 14px;
+    position: absolute;
+    bottom: -12px
+}
+
+.mod-addredit .close {
+    display: none;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    margin: 8px 0 0 -30px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAMAAADzN3VRAAAAt1BMVEWqqKj///+qqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKiqqKgzMzM+Pj5IR0dRUFBZWVl4d3eFhISMioqYl5eenJykoqKqqKjdNvLJAAAAMXRSTlMAAAcICgwSExQsLTQ1SUxdYGVmZ36AgouMm52kpcrL0NHS1tfZ5OXq6+zv8fLz9Pb37onw2AAAAOpJREFUKM9tktcSgjAQRdcKYkPBXkAFUaxgQST//10mk4QEyX3IbPbMzlYAqmZ/5gRh4Mz6zQoV9VdtH3H5dlUQY4VkrQxOejdU1K1HSfuO/nXvENLwUFleA5MJUmlaAf2kJGcdBsxMU/JmH46GsGDWK8Yoe0Zf9l/AhlnZM04xSHjMBo5IIAmgAC65/Y2ityjhJMdEjziVYlwBEpKLEweWvDaSA6Msr83i/STFfizQQuUMQg1grCRjPNH6TgG2dbKf1rUErgbdabe0025+B+sCWBvidmqjfe7fj2rSVQHo5tw9hAd3burs3n7Ls27npLUmuwAAAABJRU5ErkJggg==)no-repeat;background-size: 25px 25px
+}
+
+.addr-input-phone:valid+.close {
+    display: inline
+}

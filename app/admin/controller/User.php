@@ -92,7 +92,8 @@ class User extends Admin
      * 删除
      * @param  string $id 数据ID（主键）
      */
-    public function delete($id = 0){
+    public function delete($id = 0)
+    {
         if(empty($id)){
             return info(lang('Data ID exception'), 0);
         }

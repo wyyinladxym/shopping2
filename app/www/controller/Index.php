@@ -2,11 +2,81 @@
 namespace app\www\controller;
 
 use app\common\controller\Common;
+use think\Controller;
+use think\Loader;
+use think\Request;
+use think\Url;
+use think\Session;
+use think\Config;
 
-class Index extends Common
+class Index extends Base
 {
     public function index()
     {
-        return '<style type="text/css">*{ padding: 0; margin: 0; } .think_default_text{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p> ThinkPHP V5<br/><span style="font-size:30px">十年磨一剑 - 为API开发设计的高性能框架</span></p><span style="font-size:22px;">[ V5.0 版本由 <a href="http://www.qiniu.com" target="qiniu">七牛云</a> 独家赞助发布 ]</span></div><script type="text/javascript" src="http://tajs.qq.com/stats?sId=9347272" charset="UTF-8"></script><script type="text/javascript" src="http://ad.topthink.com/Public/static/client.js"></script><thinkad id="ad_bd568ce7058a1091"></thinkad>';
+        return $this->fetch();
     }
+
+    //获取商品分类
+    public function getGoodsCat()
+    {	
+    	return json(model('GoodsCat')->categoryTree());
+    }
+
+    //获取商品
+    public function getGoods()
+    {
+    	$request = request()->param();
+    	if(isset($request['cat_id']) && !$request['cat_id']) {
+    		unset($request['cat_id']);
+    	}
+    	return model('Goods')->getList( $request );
+    }
+
+    //加入购物车
+    public function addCart()
+    {
+    	$num 		= input('post.num');
+    	$goods_code = input('post.goods_code');
+    	$type = input('post.type');
+    	$cart_data  = cookie('cart_data');
+    	$cart_data  = empty($cart_data) ? array() : $cart_data;
+    	if(!$type) {
+    		$cart_data[$goods_code] = isset($cart_data[$goods_code]) && !empty($cart_data[$goods_code]) ? $cart_data[$goods_code] + $num : $num;
+    	}else{
+    		$cart_data[$goods_code] = (int)$num;
+    	}
+    	if( $cart_data[$goods_code] <= 0 ) {
+    		unset($cart_data[$goods_code]);
+    	}
+    	cookie('cart_data', $cart_data);
+
+    	return isset($cart_data[$goods_code]) && !empty($cart_data[$goods_code]) ? $cart_data[$goods_code] : 0;
+    }
+
+    //获取商品详情
+    public function goodsDetail()
+    {
+    	$id = input('id', '', 'intval');
+    	return model('Goods')->getDetail( $id );
+    }
+
+    //获取购物车列表
+    public function getCartList()
+    {
+    	return model('Goods')->getCartData();	
+    }
+
+    //计算购物车总数及商品数量
+    public function cartTotalPrice()
+    {
+    	return model('Goods')->cartTotalPrice();
+    }
+
+    //清空购物车数据
+    public function delCart()
+    {
+    	cookie('cart_data', null);
+    	return true;
+    }
+
 }

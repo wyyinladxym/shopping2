@@ -1,0 +1,39 @@
+{__NOLAYOUT__}
+<form data-method="post" data-action="{:url('Membergroup/saveData');}" data-submit="ajax" data-validate="true" class="form-horizontal" id="editForm">
+    <input type="hidden" value="{$data['id'] ?? ''}" name="id">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">{$data['id']?lang('Edit'):lang('Add')}{:lang('MemberGroup')}</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-content">
+                        <div class="form-group must">
+                            <label class="col-sm-3 control-label">{:lang('MemberGroup')}{:lang('Name')}</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="group_name" maxlength="20" placeholder="{:lang('Up_characters',['langth' =>20])}" required value="{$data['group_name'] ?? ''}" >
+                            </div>
+                        </div>
+
+                        <div class="form-group must">
+                            <label class="col-sm-3 control-label">{:lang('Status')}</label>
+                             <div class="col-sm-7">
+                                <select data-placeholder="{:lang('Please select the state')}" name="status" required class="form-control" >
+                                    <option value="">{:lang('Please select the state')}</option>
+                                    <option value="0" {:isset($data['status']) && 0 == $data.status ? 'selected' : ''}>{:lang('Off')}</option>
+                                    <option value="1" {:isset($data['status']) && 1 == $data.status ? 'selected' : ''}>{:lang('Start')}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{:lang('Cancel')}</button>
+                    <button type="submit" class="btn btn-primary">{:lang('Save')}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

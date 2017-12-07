@@ -1,0 +1,212 @@
+<!-- Data Tables -->
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins" style="background: white;padding: 10px">
+                <!-- 表单标题概要 -->
+                <div class="ibox-title">
+                    <h5>{$Think.lang.LogRecord}</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 表单内容 -->
+                <div class="ibox-content">
+                    <!-- 用户控件（操作） -->
+                    {toolbar id="toolbar"}
+                    {/toolbar}
+                    <!-- 表格数据 -->
+                    <table id="table" data-toggle="gridview" class="table" data-url="{:url('admin/Logrecord/getList')}" data-toolbar="#toolbar" data-show-columns="true" data-page-size="10" data-page-list="[10, 25, 50, All]" data-unique-id="id" data-pagination="true" data-side-pagination="server" data-search="true" data-click-to-select="false">
+					<!-- <table id="table"  class="table" data-toggle="gridview" > -->
+					    <thead>
+							<tr>
+								<th data-width="40" data-checkbox="true"></th>
+                                <th data-width="50" data-field="id">ID</th>
+                                <th data-width="100" data-field="username">{:lang('Account')}</th>
+								<th data-width="100" data-field="ip">{:lang('IP')}</th>
+                                <th data-field="os">{:lang('Os')}</th>
+                                <th data-field="browser">{:lang('Browser')}</th>
+                                <th data-field="remark">{:lang('Note')}</th>
+                                <th data-field="create_time">{:lang('Create Time')}</th>
+                                <th data-width="100" data-field="operate" data-align="center" data-formatter="operateFormatter" data-events="operateEvents">{:lang('Operate')}</th>
+							</tr>
+						</thead>
+					</table>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+// $(function () {
+
+//     //1.初始化Table
+//     var oTable = new TableInit();
+//          zh_table();
+//     oTable.Init();
+
+//     //2.初始化Button的点击事件
+//     var oButtonInit = new ButtonInit();
+//     oButtonInit.Init();
+// });
+
+
+// var TableInit = function () {
+//     var oTableInit = new Object();
+//     //初始化Table
+//     oTableInit.Init = function () {
+//         $('#table').bootstrapTable({
+//             url: "{:url('admin/Logrecord/getList')}",         //请求后台的URL（*）
+//             method: 'post',                      //请求方式（*）
+//             toolbar: '#toolbar',                //工具按钮用哪个容器
+//            // striped: true,                      //是否显示行间隔色
+//             cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+//             pagination: true,                   //是否显示分页（*）
+//             sortable: false,                     //是否启用排序
+//             sortOrder: "",                   //排序方式
+//             queryParams: oTableInit.queryParams,//传递参数（*）
+//             sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+//             queryParamsType: "limit",                //默认值为 'limit' ,在默认情况下 传给服务端的参数为：offset,limit,sort // 设置为 'undefined' 在这种情况下传给服务器的参数为：pageSize,pageNumber 
+//             pageNumber:1,                       //初始化加载第一页，默认第一页
+//             pageSize: 12,                       //每页的记录行数（*）
+//             pageList: [10, 15, 50, 100],        //可供选择的每页的行数（*）
+//             search: false,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+//             strictSearch: true,
+//             showColumns: false,                  //是否显示所有的列
+//             showRefresh: false,                  //是否显示刷新按钮
+//             minimumCountColumns: 2,             //最少允许的列数
+//             //clickToSelect: true,                //是否启用点击选中行
+//             //height: $(window).height() - 300,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+//             uniqueId: "id",                     //每一行的唯一标识，一般为主键列
+//             showToggle:false,                    //是否显示详细视图和列表视图的切换按钮
+//             cardView: false,                    //是否显示详细视图
+//             detailView: false,                   //是否显示父子表
+//             onLoadSuccess: function(){  //加载成功时执行 
+//                 $("#table").gridView('init')
+//               alertMsg("加载成功");  
+//             },  
+//             onLoadError: function(){  //加载失败时执行  
+//               alertMsg("加载数据失败");  
+//             },
+//             columns: [{
+//                 checkbox: true
+//             }, {
+//                 field: 'id',
+//                 title: 'ID',
+
+//             }, {
+//                 field: 'username',
+//                 title: "{:lang('Account')}",
+//             }, {
+//                 field: 'ip',
+//                 title: "{:lang('IP')}",
+//             }, {
+//                 field: 'os',
+//                 title: "{:lang('Os')}",
+//             }, {
+//                 field: 'browser',
+//                 title: "{:lang('Browser')}",
+//             }, {
+//                 field: 'remark',
+//                 title: "{:lang('Note')}",
+//             }, {
+//                 field: 'create_time',
+//                 title: "{:lang('Create Time')}",
+//             }, {
+//                 field: 'operate',
+//                 title: "{:lang('Operate')}",
+//                 formatter: oTableInit.operateFormatter,
+//                 events: oTableInit.operateEvents
+//             },]
+//         });
+//     };
+
+//     //得到查询的参数
+//     oTableInit.queryParams = function (params) {
+//         var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的pageSize,pageNumber
+//             limit: params.limit,      //页面大小
+//             offset: params.offset,  //页码
+//         };
+//         return temp;
+//     };
+//     oTableInit.operateFormatter = function(value, row, index) {
+//         return [
+//             '<a class="btn btn-xs delete" href="javascript:void(0)" title="{$Think.lang.Delete}">',
+//             '<i class="fa fa-trash"></i>',
+//             '</a>'
+//         ].join('');
+//     };
+//     oTableInit.operateEvents = {
+//         'click .delete': function (e, value, row, index) {
+//             //console.log(index);
+//             $("#table").gridView('deleteModal', 'delete', row)
+            
+//         }
+//     };
+
+
+
+//     return oTableInit;
+// };
+
+
+// var ButtonInit = function () {
+//     var oInit = new Object();
+//     var postdata = {};
+
+//     oInit.Init = function () {
+//         //初始化页面上面的按钮事件
+//     };
+
+//     return oInit;
+// };
+
+    // function operateFormatter(value, row, index) {
+    //     return [
+    //         '<a class="btn btn-xs delete" href="javascript:void(0)" title="{$Think.lang.Delete}">',
+    //         '<i class="fa fa-trash"></i>',
+    //         '</a>'
+    //     ].join('');
+    // }
+
+    // var operateEvents = {
+    //     'click .delete': function (e, value, row, index) {
+    //         //console.log(index);
+    //         $("#table").gridView('deleteModal', 'delete', row)
+            
+    //     }
+    // };
+
+	// function format_status(status, row, index) {
+	// 	if(status == 1){
+	// 		return '{:lang("Start")}'
+	// 	}else if(status == 0){
+	// 		return '{:lang("Off")}'
+	// 	}
+	// }
+    
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="btn btn-xs delete" href="javascript:void(0)" title="{$Think.lang.Delete}">',
+            '<i class="fa fa-trash"></i>',
+            '</a>'
+        ].join('');
+    }
+
+    var operateEvents = {
+        'click .delete': function (e, value, row, index) {
+            $("#table").gridView('deleteModal', 'delete', row)
+            
+        }
+    };
+</script>
+
+

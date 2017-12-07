@@ -4,6 +4,7 @@ namespace app\admin\taglib;
 use think\template\TagLib;
 use think\Request;
 use think\Config;
+use think\Loader;
 
 /**
 * 工具类标签
@@ -12,7 +13,7 @@ use think\Config;
 class Tool extends Taglib
 {
 
-    // 标签定义
+   // 标签定义
     protected $tags = [
         // 标签定义： attr 属性列表 close 是否闭合（0 或者1 默认1） alias 标签别名 level 嵌套层次
         'toolbar'           => ['attr' => 'id'],
@@ -40,5 +41,6 @@ class Tool extends Taglib
         
         return $html;
     }
+
 
 }

@@ -67,4 +67,47 @@ class logRecord extends Admin
         return $data;
     }
 
+    //列表
+    public function getList( $request )
+    {
+        $request = $this->fmtRequest( $request );
+
+        $data = $this->order('l.create_time desc')
+                     ->alias('l')
+                     ->field('l.*,u.username')
+                     ->join('__USER__ u','l.user_id = u.id')
+                     ->where( $request['map'] )
+                     ->limit($request['offset'], $request['limit'])
+                     ->select();
+        $total_page = $this->alias('l')
+                           ->field('l.*,u.username')
+                           ->join('__USER__ u','l.user_id = u.id')
+                           ->where( $request['map'] )
+                           ->count();     
+        return array('total'=>$total_page,'rows'=>$this->_fmtData($data));                    
+    }
+
+    //格式化数据
+    private function _fmtData( $data )
+    {
+        if(empty($data) && is_array($data)) {
+            return $data;
+        }
+
+        foreach ($data as $key => $value) {
+            $data[$key]['create_time'] = date('Y-m-d H:i:s',$value['create_time']);
+        }
+
+        return $data;
+    }
+
+    //系统日志记录删除
+    public function deleteById( $id )
+    {
+        $result = logRecord::destroy($id);
+        if ($result > 0) {
+            return info(lang('Delete succeed'), 1);
+        }
+    }
+
 }

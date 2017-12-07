@@ -11,7 +11,7 @@
 
 // [ 应用入口文件 ]
 if(version_compare(PHP_VERSION,'5.4.0','<'))  die('require PHP > 5.4.0 !');
-
+header('Content-type:text/html;charset="utf-8"');
 
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../app/');

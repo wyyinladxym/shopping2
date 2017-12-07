@@ -1,0 +1,137 @@
+<!-- Data Tables -->
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins" style="background: white;padding: 10px">
+                <!-- 表单标题概要 -->
+                <div class="ibox-title">
+                    <h5>{$Think.lang.GoodsCategoryList}</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 表单内容 -->
+                <div class="ibox-content">
+                    <!-- 用户控件（操作） -->
+                    
+                    {toolbar id="toolbar"}
+                        
+                    {/toolbar}
+                    
+                    <!-- 表格数据 -->
+                    <table id="table" data-toggle="gridview" class="table" data-url="{:url('admin/Goodscat/getList')}" data-toolbar="#toolbar" data-show-columns="true"  data-unique-id="id" data-pagination="false" data-side-pagination="server" data-search="true" data-click-to-select="false" data-detail-view="true">
+					    <thead>
+							<tr>
+								<th data-width="40" data-checkbox="true"></th>
+                                <th data-width="50" data-field="id">ID</th>
+                                <th data-field="name">{:lang('CategoryName')}</th>
+								<th data-field="parent_id">{:lang('Superior')}{:lang('Category')}</th>
+                                <th data-field="sort">{:lang('Sort')}</th>
+                                <th data-field="is_show">{:lang('IsShow')}</th>
+                                <th data-width="100" data-field="operate" data-align="center" data-formatter="operateFormatter" data-events="operateEvents">{:lang('Operate')}</th>
+							</tr>
+						</thead>
+					</table>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function operateFormatter(value, row, index) {
+        return [
+            '<a class="btn btn-xs edit" href="javascript:void(0)" title="{$Think.lang.Edit}">',
+            '<i class="fa fa-edit"></i>',
+            '</a>  ',
+            '<a class="btn btn-xs delete" href="javascript:void(0)" title="{$Think.lang.Delete}">',
+            '<i class="fa fa-trash"></i>',
+            '</a>'
+        ].join('');
+    }
+
+    var operateEvents = {
+        'click .edit': function (e, value, row, index) {
+            var param = {
+                url: "{:url('admin/Goodscat/edit');}",
+                data: {id: row.id}
+            }
+            $("#table").gridView('loadModal', param.url,param.data)
+        },
+        'click .delete': function (e, value, row, index) {
+            $("#table").gridView('deleteModal', 'delete', row)
+            
+        }
+    };
+
+    //加载字表
+    function initSubTable(index,row,$detail) {
+        var parent_id = row.id;  
+        var cur_table = $detail.html('<table data-toggle="gridview" class="table" ></table>').find('table');//注意这个'table'不是一个id，他在任何情况下不需要改变  
+        $(cur_table).bootstrapTable({
+            url: "{:url('admin/Goodscat/getList')}",  
+            method: 'get',
+            queryParams: {parent_id:parent_id},  
+            ajaxOptions: {parent_id:parent_id},  
+            clickToSelect: false,  
+            detailView: true,
+            sidePagination: 'server',
+            uniqueId: "id",  
+            pagination: false,
+            classes: 'table-no-bordered',
+            columns:[
+                {
+                    checkbox: true
+                },
+                {  
+                    title:'ID',  
+                    field:'id'  
+                },  
+                {  
+                    title:"{:lang('CategoryName')}",  
+                    field:'name'  
+                },  
+                {  
+                    title:"{:lang('Superior')}{:lang('Category')}",  
+                    field:'parent_id' 
+                },
+                {  
+                    title:"{:lang('Sort')}",  
+                    field:'sort' 
+                },
+                {  
+                    title:"{:lang('IsShow')}",  
+                    field:'is_show' 
+                },
+                {  
+                    title:"{:lang('Operate')}",  
+                    field:'operate',
+                    align: 'center',
+                    events:'operateEvents',
+                    formatter: function (value, row, index) { 
+                        return [
+                            '<a class="btn btn-xs edit" href="javascript:void(0)" title="{$Think.lang.Edit}">',
+                            '<i class="fa fa-edit"></i>',
+                            '</a>  ',
+                            '<a class="btn btn-xs delete" href="javascript:void(0)" title="{$Think.lang.Delete}">',
+                            '<i class="fa fa-trash"></i>',
+                            '</a>'
+                        ].join('');
+                   }, 
+                },
+            ], 
+            onExpandRow:function (index,row,$Subdetail) {  
+                initSubTable(index,row,$Subdetail);  
+            }
+        });  
+    }
+
+</script>
+
+

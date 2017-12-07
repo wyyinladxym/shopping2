@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" class="platform-iphone platform-mobile platform-m bugfix " style="font-size: 11.25px;">
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+    navigator.__defineGetter__("userAgent",
+        function() {
+            return "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
+        })
+    </script>
+    <title>欧德罗-经销商系统</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="author" content="chenhaoqiang">
+    <meta name="description" content="欧德罗-OTHELLO,经销商系统">
+    <meta name="keywords" content="欧德罗-OTHELLO,经销商系统">
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="./css/myaddress.css">
+    <link rel="stylesheet" type="text/css" href="./css/confirm_order.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/iscroll.js"></script>
+    <style>
+        .mod-container,
+        .mod-container .pageview,
+        .mod-container .main{position: static;}
+        .mod-container .main .content{padding-bottom: 50px;}
+    </style>
+</head>
+
+<body>
+    <div id="mod-container" class="mod-container clearfix">
+        <div id="mod-confirm" class="mod-confirm pageview" style="display: block;">
+            <header class="pub-header">
+                <a href="javascript:history.back(-1)"><span class="tap-action icon icon-back"></span></a>
+                <div class="header-content ">
+                    订单确认
+                </div>
+                <span class="header-right header-right-text"></span>
+            </header>
+            <!-- <div class="main main-top iscroll-container" data-iscroll-id="content" style="overflow-y: hidden;"> -->
+            <div class="main main-top" data-iscroll-id="content" style="">
+                <!--这里禁止了拖动页面-->
+                <div class="content" style=" transition-property: transform; transform-origin: 0px 0px 0px; transform: translate(0px, 0px) scale(1) translateZ(0px);">
+                    <!--没有收货地址-->
+                    <div class="address_empty" data-tap="selectAddr" style="display: none;">
+                        添加/选择收货地址<span><i class="iconfont icon-you"></i></span>
+                    </div>
+                    <!--没有收货地址 end-->
+                    <!--有收货地址-->
+                    <div class="address_full" data-tap="selectAddr" style="display: block;">
+                        <ul>
+                            <li>
+                                <span>收货人：<em class="address_accept_name">江堂枝</em></span>
+                                <span class="address_phone">13702833990</span>
+                            </li>
+                            <li>
+                                <p><i class="iconfont icon-dingwei address_icon"></i><span class="address_address">广东省广州市天河区科华路351号广东省科技干部学院1幢401</span></p>
+                            </li>
+                            <input type="hidden" name="qrcode_address_id" id="qrcode_address_id" value="42">
+                        </ul>
+                        <div class="right_ico">
+                            <i class="iconfont icon-you"></i>
+                        </div>
+                    </div>
+                    <!--有收货地址 end-->
+                    <!-- 商品列表 -->
+                    <div class="order_goods_list">
+                        <div class="order_goods">
+                            <div class="o_g_head">
+                                <div class="seller clearfix">
+                                    <a href="javascript:void">
+                                        <div class="o_g_ico"><i class="iconfont diy-logo"></i>欧德罗顺丰发货</div>
+                                    </a>
+                                </div>
+                            </div>
+                            <ul class="o_g_ul">
+                                <li class="o_g_li" data-catid="34" data-promtype="0">
+                                    <div class="og_li_sku clearfix">
+                                        <div class="sku_leftbox">
+                                            <div class="sku_img"><img src="http://weishop.com/wx_shopping/Public/Upload/2016/06/07/20160607201708361.jpg" alt=""></div>
+                                        </div>
+                                        <div class="sku_rightbox">
+                                            <h3 class="sku_title" good-category="34">泰丽系列双耳不锈钢炒锅<span class="sku_attr">（36CM）</span></h3>
+                                            <div class="sku_model">TL3610、M1030101</div>
+                                            <div class="sku_original_price"><s>原价：￥398.00</s></div>
+                                            <div class="sku_pay clearfix">
+                                                <div class="sku_bargain">
+                                                    <font style="">商议价:￥</font>
+                                                    <input class="bargain_number" type="num" value="275">
+                                                </div>
+                                                <div class="sku_num">x<span>1000</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="o_g_li" data-catid="34" data-promtype="0">
+                                    <div class="og_li_sku clearfix">
+                                        <div class="sku_leftbox">
+                                            <div class="sku_img"><img src="http://weishop.com/wx_shopping/Public/Upload/2016/06/07/20160607201708361.jpg" alt=""></div>
+                                        </div>
+                                        <div class="sku_rightbox">
+                                            <h3 class="sku_title" good-category="34">泰丽系列双耳不锈钢炒锅<span class="sku_attr">（36CM）</span></h3>
+                                            <div class="sku_model">TL3610、M1030101</div>
+                                            <div class="sku_original_price"><s>原价：￥398.00</s></div>
+                                            <div class="sku_pay clearfix">
+                                                <div class="sku_bargain">
+                                                    <font style="">商议价:￥</font>
+                                                    <input class="bargain_number" type="num" value="275">
+                                                </div>
+                                                <div class="sku_num">x<span>1</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="o_g_li" data-catid="34" data-promtype="0">
+                                    <div class="og_li_sku clearfix">
+                                        <div class="sku_leftbox">
+                                            <div class="sku_img"><img src="http://weishop.com/wx_shopping/Public/Upload/2016/06/07/20160607201708361.jpg" alt=""></div>
+                                        </div>
+                                        <div class="sku_rightbox">
+                                            <h3 class="sku_title" good-category="34">泰丽系列双耳不锈钢炒锅<span class="sku_attr">（36CM）</span></h3>
+                                            <div class="sku_model">TL3610、M1030101</div>
+                                            <div class="sku_original_price"><s>原价：￥398.00</s></div>
+                                            <div class="sku_pay clearfix">
+                                                <div class="sku_bargain">
+                                                    <font style="">商议价:￥</font>
+                                                    <input class="bargain_number" type="num" value="275">
+                                                </div>
+                                                <div class="sku_num">x<span>1</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="o_g_li" data-catid="34" data-promtype="0">
+                                    <div class="og_li_sku clearfix">
+                                        <div class="sku_leftbox">
+                                            <div class="sku_img"><img src="http://weishop.com/wx_shopping/Public/Upload/2016/06/07/20160607201708361.jpg" alt=""></div>
+                                        </div>
+                                        <div class="sku_rightbox">
+                                            <h3 class="sku_title" good-category="34">泰丽系列双耳不锈钢炒锅<span class="sku_attr">（36CM）</span></h3>
+                                            <div class="sku_model">TL3610、M1030101</div>
+                                            <div class="sku_original_price"><s>原价：￥398.00</s></div>
+                                            <div class="sku_pay clearfix">
+                                                <div class="sku_bargain">
+                                                    <font style="">商议价:￥</font>
+                                                    <input class="bargain_number" type="num" value="275">
+                                                </div>
+                                                <div class="sku_num">x<span>1</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                            <div class="order_link">
+                                <ul>
+                                    <li>客户名称:
+                                        <input class="kehu_name" placeholder="" value="" pattern="">
+                                    </li>
+                                    <li>业务备注:
+                                        <input class="yewu_beizhu" placeholder="选填:对本次交易的说明" value="" pattern="">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="block confirm-amount">
+                                结算总价：￥<span id="confirm_total">354.00</span>
+                                <br>
+                                商议总价：￥<span id="confirm_bargain">354.00</span>
+                                <br>
+                                运
+                                <span class="ui-hidden">
+                                    中中
+                                </span>
+                                费：￥<span id="confirm_freight">0</span><span id="confirm_freight_array" style="display:none;">{}</span>
+                            </div>
+                            <div class="order_allpay">
+                                共<b class="goods_num_all">1003</b>件商品 &nbsp;&nbsp;需支付：<span class="order_total_price"><small>￥</small><em class="total_price">1482.00</em></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 商品列表end -->
+                    <!-- 支付方式 -->
+                    <ul class="pay-list block">
+                        <li onclick="" class="pay-item tap-action pay-item-wapweixin icon-ok" data-tap="selectPay|wapweixin">
+                            <span class="pay-icon pay-icon-wapweixin">
+                            </span>
+                            微信支付
+                        </li>
+                        <hr>
+                        <li onclick="" class="pay-item tap-action  pay-item-delivery" data-tap="selectPay|telegraphic">
+                            <span class="pay-icon pay-icon-telegraphic">
+                            </span>
+                            电汇付款
+                        </li>
+                        <hr/>
+                        <li onclick="" class="pay-item tap-action  pay-item-alipay" data-tap="selectPay|agreement">
+                            <span class="pay-icon pay-icon-agreement">
+                            </span>
+                            协议付款
+                        </li>
+                        <hr/>
+                    </ul>
+
+                    <ul id="warp" style="display:none;">
+                      <li>
+                        <input type="file" id="up_img_WU_FILE_0" />
+                        <img id="imgShow_WU_FILE_0" width="100" height="100" />
+                      </li>
+                    </ul>
+
+                    <div onclick="" class="bigbtn bigbtn-one"  data-tap="set_bill" id="auto-tab-bill">
+                        确定下单
+                    </div>
+                    <div onclick="" style="background-color:blue;display:none;" class="bigbtn bigbtn-one"  data-tap="set_negotiate" id="auto-tab-negotiate">
+                        提交议价单
+                    </div>
+                    <br>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/address.js"></script>
+    <script>
+    $(function() {})
+    </script>
+</body>
+
+</html>

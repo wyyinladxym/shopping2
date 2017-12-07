@@ -1,0 +1,170 @@
+{__NOLAYOUT__}
+<form data-method="post" data-action="{:url('admin/Goods/saveData')}" data-submit="ajax" data-validate="true" class="form-horizontal" id="editForm">
+    <input type="hidden" value="{$data['id'] ?? ''}" name="id">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">{$data['id']?lang('Edit'):lang('Add')}{:lang('Goods')}</h3>
+                </div>
+
+                <div class="modal-body">
+                    <div class="modal-body-content">
+                        <div class="tabs-container">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">{:lang('Essential information')}</a></li>
+                                <li class=""><a data-toggle="tab" href="#tab-2" aria-expanded="false">{:lang('Detailed description')}</a></li>
+                            </ul>
+                            <div class="tab-content" style="padding-top:20px;">
+                                <div id="tab-1" class="tab-pane active">
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">{:lang('Commodity name')}</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="goods_name" required class="form-control" value="{$data.goods_name ?? ''}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">{:lang('Commodity classification')}</label>
+                                        <div class="col-sm-7">
+                                           {$select_str}
+                                        </div>
+                                    </div>
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">{:lang('Commodity coding')}</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="goods_code" required class="form-control" value="{$data.goods_code ?? ''}">
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group must">
+                                        <label class="col-sm-3 control-label">商品描述</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="" class="form-control" value="请输入商品描述">
+                                        </div>
+                                    </div>
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">商品货号</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="" class="form-control" value="请输入商品货号">
+                                        </div>
+                                    </div>
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">商品型号</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="" class="form-control" value="请输入商品型号">
+                                        </div>
+                                    </div> -->
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">{:lang('Commodity market price')}</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="market_price" required class="form-control" value="{$data.market_price ?? ''}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">{:lang('Commodity sale price')}</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="shop_price" required class="form-control" value="{$data.shop_price ?? ''}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">{:lang('Commodity stock')}</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="store_count" required digits="true" class="form-control" value="{$data.store_count ?? ''}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">{:lang('Commodity ordering')}</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="sort" required digits="true" class="form-control" placeholder="数值大的靠前" value="{$data.sort ?? ''}"> <!-- <span class="help-block m-b-none">（数值大的靠前）</span> -->
+                                        </div>
+                                    </div>
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">{:lang('Shelf down')}</label>
+                                        <div class="col-sm-7">
+                                            <label class="radio-inline">
+                                                <input type="radio" value="1" name="is_on_sale" {:isset($data['is_on_sale']) && $data['is_on_sale'] == 1 ? 'checked' : ''}>{:lang('The shelves')}
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input type="radio" value="0" name="is_on_sale" {:isset($data['is_on_sale']) && $data['is_on_sale'] == 0 ? 'checked' : ''}>{:lang('Off the shelf')}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group must">
+                                        <label class="col-sm-3 control-label">{:lang('Commodity picture')}</label>
+                                        <div class="col-sm-7">
+                                            <input type="file" name="up_goods_img" class="form-control goods_img"  id="goods_img">
+                                            <span class="help-block m-b-none">（{:lang('Uploading files cannot be greater than',['size'=>'1024KB'])}）</span>
+                                            <img {:isset($data['goods_img']) && $data['goods_img'] ? "src=__UPLOADS__$data[goods_img]" : ''}  id="goods_img_box" width="100">
+                                            <input type="hidden" name="goods_img" value="{$data.goods_img ?? ''}"  >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="tab-2" class="tab-pane">
+                                    <textarea id="content" name="goods_content" style="height:500px;width:100%;">{$data.goods_content ?? ''}</textarea> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{:lang('Cancel')}</button>
+                    <button type="submit" class="btn btn-primary">{:lang('Save')}</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+{js href="__JS__/plugins/kindeditor/kindeditor-all-min.js" /}
+{js href="__STATIC__/common/plugins/ajaxfileupload.js" /}
+<script>
+var editor;
+option =  {
+              allowFileManager : true,
+              filterMode : true,
+              items:["image", "preview","justifyleft","justifycenter","justifyright","justifyfull","insertorderedlist","fullscreen","fontname","fontsize","forecolor","hilitecolor","bold","italic","underline","strikethrough","lineheight","media","flash","table","hr","emoticons","baidumap","pagebreak","link","unlink"]
+          }
+editor = KindEditor.create('#content',option);
+editor.sync();
+
+$(function(){
+
+    //商品主图
+    $(".goods_img").bind('change',ajaxFileUpload);
+    function ajaxFileUpload() {
+        var $this = $(this);
+        var id = $this.attr('id');
+        $.ajaxFileUpload
+        (
+            {
+                url: "{:URL('Goods/ajaxfileupload')}", //用于文件上传的服务器端请求地址
+                data: {},
+                secureuri: false, //一般设置为false
+                fileElementId: id, //文件上传空间的id属性  <input type="file" id="file" name="file" />
+                dataType: 'json', //返回值类型 一般设置为json
+                success: function (res, status)  //服务器成功响应处理函数
+                {
+                    if(res.error) {
+                        $(".goods_img").bind('change',ajaxFileUpload); //重新绑定
+                        alertMsg(res.msg);
+                        return false;
+                    }
+                    $('#goods_img_box').attr('src','__UPLOADS__' + res.data.original_img);
+                    $('input[name="goods_img"]').val(res.data.original_img);
+                },
+                error: function (data, status, e)//服务器响应失败处理函数
+                {
+                     alertMsg('服务器响应失败,请重新添加');
+                }
+            }
+        )
+        $(".goods_img").bind('change',ajaxFileUpload); //重新绑定
+    }
+
+})
+
+</script>

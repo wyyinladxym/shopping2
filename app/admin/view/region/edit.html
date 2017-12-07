@@ -1,0 +1,35 @@
+{__NOLAYOUT__}
+<!--地区编辑暂时不做-->
+<form data-method="post" data-action="{:url('Department/saveData');}" data-submit="ajax" data-validate="true" class="form-horizontal" id="editForm">
+    <input type="hidden" value="{$data['id'] ?? ''}" name="id">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title">{$data['id']?lang('Edit'):lang('Add')}{:lang('Department')}</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-body-content">
+                        <div class="form-group must">
+                            <label class="col-sm-3 control-label">{:lang('Department')}{:lang('Name')}</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="name" maxlength="12" placeholder="{:lang('Up_characters',['langth' =>12])}" required value="{$data['name'] ?? ''}" >
+                            </div>
+                        </div>
+                        <div class="form-group must">
+                            <label class="col-sm-3 control-label">{:lang('Sort')}</label>
+                            <div class="col-sm-7">
+                                <input type="number" class="form-control" name="sort" required digits="true" maxlength="3" placeholder="{:lang('The front of a large number')}" value="{$data['sort'] ?? '0'}" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{:lang('Cancel')}</button>
+                    <button type="submit" class="btn btn-primary">{:lang('Save')}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

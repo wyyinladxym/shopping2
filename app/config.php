@@ -235,4 +235,8 @@ return [
 
     //写安装程序的时候随即生成authId
     'user_auth_key' => 'authId',
+    //默认业务员头像
+    'salems_default_pic' => '/static/common/images/default_salesmen.png',
+    //默认会员头像
+    'member_default_pic' => '/static/common/images/default_member.jpg',
 ];

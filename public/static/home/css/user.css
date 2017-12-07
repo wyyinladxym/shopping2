@@ -1,0 +1,120 @@
+.mod-mine .my_header {
+    background: #fff;
+    margin-bottom: 10px;
+    padding: 10px 0;
+}
+
+.mod-mine .me {
+    position: relative;
+    width: 95%;
+    height: 85px;
+    background-image: -webkit-gradient(linear, left top, right top, from(#f58612), to(#e7601f));
+    background-image: -webkit-linear-gradient(left, #f58612, #e7601f);
+    background-image: linear-gradient(90deg, #f58612, #e7601f);
+    font-size: 16px;
+    color: #fff;
+    margin: 0px auto;
+    border-radius: 5px;
+}
+
+.mod-mine .me-photo {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: no-repeat center center #fff;
+    background-size: 38px
+}
+
+.mod-mine .me-info {
+    position: absolute;
+    top: 20px;
+    left: 90px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.mod-mine .me-info .me-name {
+    font-weight: 700;
+}
+
+.mod-mine .me-setting {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 13px;
+    padding-left: 18px;
+    color: rgba(76, 0, 0, .7);
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaBAMAAABbZFH9AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAnUExURUdwTEsAAE8AAEwAAEsAAEsAAEoAAEwAAEsAAEwAAEoAAEcAAEsAAF159XcAAAANdFJOUwCzCKh0jUgkgVU4EmwGAanqAAAAsElEQVQY02NgAAFlQSMGBJgoKAljaikwGQoKKzAtAnGYGk2mCgoKRjpLKAB5GoIw0ATkbYTzpIE8DjivAchjg/MSgDwuIO3OUAIkFwB5qoKCYkAqUVAwiIFB01BQ0AHIYxEUFJ7EAOQIFgB57EBamAGkHewkMAOVh6oS1RRUG9BsR3UZqqsRPgKFjQqcdwAcEjapQGbYYRmwI7gUuAUFRRkYCmDBdlBQCik8NwoGgGkAgVwge2ZnUhoAAAAASUVORK5CYII=) no-repeat 0;
+    background-size: 13px;
+}
+
+.mod-mine .mine-item-tel {
+    font-size: 26px
+}
+
+dl.mod-head-strip {
+    margin-top: 10px;
+    background-color: #FFF;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+}
+
+dl.mod-head-strip dt {
+    display: block;
+    padding: 0 10px;
+    border-bottom: solid 1px #EEE;
+    height: 44px;
+    line-height: 44px;
+}
+
+dl.mod-head-strip dt a {
+    display: block;
+    text-decoration: none;
+}
+
+dl.mod-head-strip dt h3 {
+    font-weight: 600;
+    color: #111;
+    vertical-align: top;
+    display: inline-block;
+}
+
+dl.mod-head-strip dt h3 i {
+    margin-right: 5px;
+}
+
+dl.mod-head-strip dt h5 {
+    font-weight: 600;
+    color: #999;
+    float: right;
+}
+
+dl.mod-head-strip dd {
+    display: block;
+    padding: 5px 0;
+}
+
+dl.mod-head-strip dd ul#order_ul li {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 23.9%;
+}
+
+dl.mod-head-strip dd ul#order_ul li a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+dl.mod-head-strip dd ul#order_ul li i {
+    color: #f58612;
+    font-size: 30px;
+}
+
+dl.mod-head-strip dd ul#order_ul li p {
+    color: #888;
+    font-size: 13px;
+}

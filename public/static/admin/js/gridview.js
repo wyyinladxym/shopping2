@@ -171,7 +171,7 @@ $(function() {
                 return false;
             },
             onExpandRow: function(index, row, $detail) {
-                //$table.trigger('expandRow', [index, row, $detail]);
+                initSubTable(index, row, $detail);
                 return false;
             },
             onCollapseRow: function(index, row) {

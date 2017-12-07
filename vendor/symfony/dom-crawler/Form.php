@@ -37,8 +37,6 @@ class Form extends Link implements \ArrayAccess
     private $baseHref;
 
     /**
-     * Constructor.
-     *
      * @param \DOMElement $node       A \DOMElement instance
      * @param string      $currentUri The URI of the page where the form is embedded
      * @param string      $method     The method to use for the link (if null, it defaults to the method defined by the form)
@@ -69,7 +67,7 @@ class Form extends Link implements \ArrayAccess
      *
      * @param array $values An array of field values
      *
-     * @return Form
+     * @return $this
      */
     public function setValues(array $values)
     {
@@ -172,6 +170,18 @@ class Form extends Link implements \ArrayAccess
             if (!empty($qs)) {
                 parse_str($qs, $expandedValue);
                 $varName = substr($name, 0, strlen(key($expandedValue)));
+
+                array_walk_recursive(
+                    $expandedValue,
+                    function (&$value, $key) {
+                        if (ctype_digit($value) && ('size' === $key || 'error' === $key)) {
+                            $value = (int) $value;
+                        }
+                    }
+                );
+
+                reset($expandedValue);
+
                 $values = array_replace_recursive($values, array($varName => current($expandedValue)));
             }
         }
@@ -279,7 +289,7 @@ class Form extends Link implements \ArrayAccess
     /**
      * Gets all fields.
      *
-     * @return FormField[] An array of fields
+     * @return FormField[]
      */
     public function all()
     {
